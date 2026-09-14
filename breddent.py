@@ -34,9 +34,8 @@ slutord = input("Slutord: ")
 makechildren(startord)
 
 
-# ---------------------------------------------------------
-# Labb 5 – Breddenförstsökning, del 2
-# ---------------------------------------------------------
+
+#Breddenförstsökning, del 2
 from linkedQ import LinkedQ  # importera din köklass från labb 2
 
 with open("word3.txt", "r", encoding="utf-8") as f:
@@ -44,9 +43,7 @@ with open("word3.txt", "r", encoding="utf-8") as f:
 
 gamla = []  # lista över redan besökta ord
 
-# ---------------------------------------------------------
 # makechildren() – skapar barn till ett ord och lägger dem i kön
-# ---------------------------------------------------------
 def makechildren(ordet, q, slutord):
     alfabet = "abcdefghijklmnopqrstuvwxyzåäö"
 
@@ -61,9 +58,7 @@ def makechildren(ordet, q, slutord):
                     return True
     return False
 
-# ---------------------------------------------------------
 # Huvudprogram
-# ---------------------------------------------------------
 startord = input("Startord: ")
 slutord = input("Slutord: ")
 
