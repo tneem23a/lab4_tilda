@@ -53,8 +53,7 @@ def finns_väg(start, mål):
     # Om kön blir tom utan att vi hittat målet → ingen väg
     return False
 
-# 5. Testa programmet
-
+#Testa programmet
 startord = "söt"
 slutord = "sur"
 
