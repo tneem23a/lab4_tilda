@@ -1,5 +1,4 @@
 #Breddenförstsökning, del 1
-
 # Läs in ordlistan (svenska ord med tre bokstäver)
 with open("word3.txt", "r", encoding="utf-8") as f:
     svenska = [w.strip() for w in f if len(w.strip()) == 3]
@@ -32,11 +31,11 @@ slutord = input("Slutord: ")
 
 # Skapa barn till startordet
 makechildren(startord)
-
+'''
 
 
 #Breddenförstsökning, del 2
-from linkedQ import LinkedQ  # importera din köklass från labb 2
+from linkedQFile import LinkedQ  # importera din köklass från labb 2
 
 with open("word3.txt", "r", encoding="utf-8") as f:
     svenska = [w.strip() for w in f if len(w.strip()) == 3]
@@ -74,3 +73,4 @@ while not q.isEmpty() and not found:
 
 if not found:
     print("Ingen väg hittades mellan", startord, "och", slutord)
+'''
