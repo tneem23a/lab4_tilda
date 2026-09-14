@@ -1,9 +1,4 @@
-#Kontrollera om det finns en väg mellan två ord
-# genom att byta EN bokstav i taget, där varje mellanord finns i ordlistan.
-
-# 1. Läs in ordlistan
-# Här använder vi en fil som innehåller alla giltiga ord, t.ex. word3.txt.
-# Varje rad i filen är ett ord.
+#problembeskrivning --> förklarar vad som ska göras 
 
 with open("word3.txt", "r", encoding="utf-8") as f:
     words = [w.strip() for w in f if len(w.strip()) == 3]  # tar bara ord med 3 bokstäver
@@ -27,7 +22,7 @@ for w1 in words:
             neighbors[w1].append(w2)
 
 #Funktion som avgör om det finns en väg mellan start och mål
-# Vi använder BFS (Breadth-First Search) för att söka igenom grafen.
+# Vi använder BFS för att söka igenom grafen.
 def finns_väg(start, mål):
     # Om start eller mål inte finns i ordlistan → ingen väg
     if start not in words or mål not in words:
