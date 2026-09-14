@@ -8,9 +8,7 @@
 with open("word3.txt", "r", encoding="utf-8") as f:
     words = [w.strip() for w in f if len(w.strip()) == 3]  # tar bara ord med 3 bokstäver
 
-# ---------------------------------------------------------
-# 2. Funktion som kontrollerar om två ord skiljer sig med exakt en bokstav
-# ---------------------------------------------------------
+#Funktion som kontrollerar om två ord skiljer sig med exakt en bokstav
 def differ_by_one_letter(w1, w2):
     # Om orden inte har samma längd kan de inte jämföras
     if len(w1) != len(w2):
@@ -20,19 +18,15 @@ def differ_by_one_letter(w1, w2):
     # Returnerar True om skillnaden är exakt 1 bokstav
     return diff == 1
 
-# ---------------------------------------------------------
-# 3. Bygg grafen (grannlista)
-# ---------------------------------------------------------
-# Varje ord är en nod, och det finns en kant mellan ord som skiljer sig med en bokstav.
+#Bygg grafen (grannlista)
+#Varje ord är en nod, och det finns en kant mellan ord som skiljer sig med en bokstav.
 neighbors = {w: [] for w in words}
 for w1 in words:
     for w2 in words:
         if differ_by_one_letter(w1, w2):
             neighbors[w1].append(w2)
 
-# ---------------------------------------------------------
-# 4. Funktion som avgör om det finns en väg mellan start och mål
-# ---------------------------------------------------------
+#Funktion som avgör om det finns en väg mellan start och mål
 # Vi använder BFS (Breadth-First Search) för att söka igenom grafen.
 def finns_väg(start, mål):
     # Om start eller mål inte finns i ordlistan → ingen väg
@@ -59,9 +53,8 @@ def finns_väg(start, mål):
     # Om kön blir tom utan att vi hittat målet → ingen väg
     return False
 
-# ---------------------------------------------------------
 # 5. Testa programmet
-# ---------------------------------------------------------
+
 startord = "söt"
 slutord = "sur"
 
