@@ -40,6 +40,7 @@ def read_wordlist(filename):
                 svenska.append(ordet)
     return svenska
 
+
 #Skriver ut hela ordkedjan från startord till slutord.
 # Detta görs rekursivt: först går vi bakåt till startordet,
 # sedan skrivs orden ut på vägen upp ur rekursionen.
@@ -77,37 +78,43 @@ def makechildren(node, q, slutord, svenska, gamla):
 
 def main():
     # Läs ordlista
-    svenska = read_wordlist("svenska.txt")
+    svenska = read_wordlist("word3.txt")
 
-    #tar emot start- och slutord fråna nvändar 
+    #tar emot start- och slutord fråna nvändar, strip - bort extra mellanslag
     startord = input("Startord: ").strip()
     slutord = input("Slutord: ").strip()
 
-    
+    #kontrollerar samma längd för att jämföra bokstav för bokstav 
     if len(startord) != len(slutord):
         print("Orden måste ha samma längd.")
         return
 
+    #kontrollerar båda orden finns i ordlistan 
     if startord not in svenska or slutord not in svenska:
         print("Båda orden måste finnas i ordlistan.")
         return
-
+    #skapa BFS kö och gamla lista för ord som besökts 
     q = LinkedQ()
     gamla = []
 
     # Startnoden har ingen förälder
     start_node = ParentNode(startord, None)
+    #lägg noden i kön, markera ord som besökt 
     q.enqueue(start_node)
     gamla.append(startord)
 
     try:
-        while not q.is_empty():
+        #BFS fortsätter så länge kön inte är tom 
+        while not q.isEmpty():
             node = q.dequeue()
+            #genererar alla barn till noden, solutionfound om slutord hittas
             makechildren(node, q, slutord, svenska, gamla)
+        #om kön är tom, inget slutord hittas    
         print("Ingen lösning hittades.")
     except SolutionFound:
+        #om slutionfound kastat har kedjan hittats av write_chain()
         print("Kedja hittad!")
 
-
+#kör main om filen körs
 if __name__ == "__main__":
     main()
