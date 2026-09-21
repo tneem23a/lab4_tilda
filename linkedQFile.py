@@ -40,4 +40,5 @@ class LinkedQ:                  #kö som använder länkade noder
 
 
 
+
     

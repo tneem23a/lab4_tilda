@@ -17,9 +17,9 @@ def differ_by_one_letter(w1, w2):
 #Varje ord är en nod, och det finns en kant mellan ord som skiljer sig med en bokstav.
 neighbors = {w: [] for w in words}
 for w1 in words:
-    for w2 in words:
-        if differ_by_one_letter(w1, w2):
-            neighbors[w1].append(w2)
+    for w2 in words: #jämförelse av ord 
+        if differ_by_one_letter(w1, w2): #om de skiljer sig med en bokstav --> kant i grafen 
+            neighbors[w1].append(w2) #lägger till i grannlistan 
 
 #Funktion som avgör om det finns en väg mellan start och mål
 # Vi använder BFS för att söka igenom grafen.
